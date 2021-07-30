@@ -43,5 +43,6 @@
         @stack('modals')
         <wireui:scripts />
         @livewireScripts
+        <x-livewire-alert::scripts />
     </body>
 </html>
