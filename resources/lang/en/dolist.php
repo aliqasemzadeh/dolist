@@ -5,6 +5,7 @@ return [
   'title' => 'Title',
   'save' => 'Save',
   'saved' => 'Saved.',
+  'done' => 'Done',
   'created' => 'Created.',
   'description' => 'Description',
 ];

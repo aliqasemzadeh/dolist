@@ -17,7 +17,7 @@ class Index extends Component
 
     public function mount()
     {
-        $this->tasks = Task::where('user_id', auth()->user()->id)->latest()->get();
+        $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
     }
 
     public function create()
@@ -28,11 +28,24 @@ class Index extends Component
 
         Task::Create(['title' => $this->title, 'user_id' => auth()->user()->id]);
 
-        $this->tasks = Task::where('user_id', auth()->user()->id)->latest()->get();
+        $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
 
         $this->alert(
             'success',
             __('dolist.created')
+        );
+    }
+
+    public function done(Task $task)
+    {
+        $task->status = 'done';
+        $task->save();
+
+        $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
+
+        $this->alert(
+            'success',
+            __('dolist.done')
         );
     }
 

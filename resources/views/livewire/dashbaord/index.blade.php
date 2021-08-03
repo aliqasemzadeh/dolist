@@ -13,7 +13,7 @@
         <div class="mt-4 mb-4">
             <x-card title="{{ $task->title }}">
                 <x-slot name="action">
-                    <button class="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                    <button wire:click="done({{ $task }})" class="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600">
                         <x-icon name="check" class="w-4 h-4 text-gray-500" />
                     </button>
                 </x-slot>
