@@ -32,7 +32,11 @@ class Index extends Component
            'title' => 'string|required'
         ]);
 
-        Task::Create(['title' => $this->title, 'user_id' => auth()->user()->id]);
+        $task = new Task();
+        $task->title = $this->title;
+        $task->description = $this->description;
+        $task->user_id = auth()->user()->id;
+        $task->save();
 
         $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
 
