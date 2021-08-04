@@ -1,3 +1,39 @@
-Do List
+✔️ DoList
+======================
+> [DoList](https://DoList.ir/) - Easy way to manage To Do List.
 
-Easy To List
+## 🖥️ Demo
+
+Demo: [DoList.ir](https://DoList.ir/)
+
+## 🔌 Requirements
+
+- PHP version: >= 7.3
+- Composer
+- Node.js
+
+
+## 🧰 Built with
+
+- Laravel 88
+- Livewire
+- Tailwind CSS
+- WireUI
+
+
+## 🧾 Installation
+
+1. `git clone https://github.com/alighasemzadeh/dolist MyDoList`
+2. `cd MyDoList`
+3. Install dependencies:
+
+   `composer install`
+
+   `npm install`
+
+4. `cp .env.example .env`
+5. `php artisan key:generate`
+6. Set your `.env` with credentials to your database server (`DB_*` settings) and your domain config (`APP_URL`).
+8. `php artisan migrate`
+11. Build frontend with `npm run production` for production.
+11. Run your server `php artisan serve`.
