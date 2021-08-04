@@ -6,6 +6,9 @@ return [
   'save' => 'Save',
   'saved' => 'Saved.',
   'done' => 'Done',
+  'cancelled' => 'Cancelled.',
+  'cancel' => 'Cancel',
+  'are_you_sure' => 'Are you sure?',
   'created' => 'Created.',
   'description' => 'Description',
 ];

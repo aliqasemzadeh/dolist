@@ -15,6 +15,12 @@ class Index extends Component
     public $task;
     public $tasks;
 
+
+    protected $listeners = [
+        'confirmedDone',
+        'cancelledDone',
+    ];
+
     public function mount()
     {
         $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
@@ -38,8 +44,24 @@ class Index extends Component
 
     public function done(Task $task)
     {
-        $task->status = 'done';
-        $task->save();
+
+        $this->confirm(__('dolist.are_you_sure'), [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => true,
+            'cancelButtonText' => __('dolist.cancel'),
+            'onConfirmed' => 'confirmedDone',
+            'onCancelled' => 'cancelledDone'
+        ]);
+
+        $this->task = $task;
+    }
+
+
+    public function confirmedDone()
+    {
+        $this->task->status = 'done';
+        $this->task->save();
 
         $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
 
@@ -49,7 +71,13 @@ class Index extends Component
         );
     }
 
-
+    public function cancelledDone()
+    {
+        $this->alert(
+            'success',
+            __('dolist.cancelled')
+        );
+    }
 
     public function render()
     {
