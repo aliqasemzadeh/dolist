@@ -15,7 +15,7 @@ Demo: [DoList.ir](https://DoList.ir/)
 
 ## 🧰 Built with
 
-- Laravel 88
+- Laravel 8
 - Livewire
 - Tailwind CSS
 - WireUI
