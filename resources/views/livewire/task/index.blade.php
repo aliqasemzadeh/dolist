@@ -12,4 +12,6 @@
             </x-card>
         </div>
     @endforeach
+
+    {{ $tasks->links() }}
 </div>

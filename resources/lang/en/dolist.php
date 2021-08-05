@@ -6,6 +6,8 @@ return [
   'save' => 'Save',
   'saved' => 'Saved.',
   'done' => 'Done',
+  'create' => 'Create',
+  'create' => 'Create',
   'cancelled' => 'Cancelled.',
   'cancel' => 'Cancel',
   'are_you_sure' => 'Are you sure?',

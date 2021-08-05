@@ -57,7 +57,6 @@ class Index extends Component
             'onConfirmed' => 'confirmedDone',
             'onCancelled' => 'cancelledDone'
         ]);
-
         $this->task = $task;
     }
 
@@ -66,9 +65,7 @@ class Index extends Component
     {
         $this->task->status = 'done';
         $this->task->save();
-
         $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
-
         $this->alert(
             'success',
             __('dolist.done')

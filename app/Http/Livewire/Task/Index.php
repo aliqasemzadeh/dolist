@@ -11,11 +11,9 @@ class Index extends Component
     use WithPagination;
 
     public $task;
-    public $tasks;
 
     public function remove(Task $task)
     {
-
         $this->confirm(__('dolist.are_you_sure'), [
             'toast' => false,
             'position' => 'center',
@@ -24,15 +22,12 @@ class Index extends Component
             'onConfirmed' => 'confirmedRemove',
             'onCancelled' => 'cancelledRemove'
         ]);
-
         $this->task = $task;
     }
 
     public function confirmedRemove()
     {
         $this->task->delete();
-
-        $this->tasks = Task::where('user_id', auth()->user()->id)->latest()->get();
 
         $this->alert(
             'success',
@@ -48,9 +43,13 @@ class Index extends Component
         );
     }
 
+    public function mount()
+    {
+    }
+
     public function render()
     {
-        $this->tasks = Task::where('user_id', auth()->user()->id)->latest()->get();
-        return view('livewire.task.index');
+        $tasks = Task::where('user_id', auth()->user()->id)->latest()->paginate(3);
+        return view('livewire.task.index', compact('tasks'));
     }
 }
