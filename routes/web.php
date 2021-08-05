@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', \App\Http\Livewire\Dashbaord\Index::class)->name('dashboard');
+    Route::get('/task', \App\Http\Livewire\Task\Index::class)->name('task');
 });
