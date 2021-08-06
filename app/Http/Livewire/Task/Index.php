@@ -49,7 +49,7 @@ class Index extends Component
 
     public function render()
     {
-        $tasks = Task::where('user_id', auth()->user()->id)->latest()->paginate(3);
+        $tasks = Task::where('user_id', auth()->user()->id)->latest()->paginate(config('dolist.per_page'));
         return view('livewire.task.index', compact('tasks'));
     }
 }
