@@ -33,6 +33,7 @@ class Edit extends ModalComponent
         if(auth()->user()->id != $task->user_id) {
             abort(400);
         }
+
         $this->task = $task;
         $this->title = $task->title;
         $this->description = $task->description;

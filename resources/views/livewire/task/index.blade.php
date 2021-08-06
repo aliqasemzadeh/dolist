@@ -7,7 +7,11 @@
                         <x-icon name="trash" class="w-4 h-4 text-gray-500" />
                     </button>
                 </x-slot>
-                {{ $task->status }}
+                @if($task->status == 'done')
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800">
+                  {{ __('dolist.'.$task->status) }}
+                </span>
+                @endif
                 {{ $task->description }}
             </x-card>
         </div>

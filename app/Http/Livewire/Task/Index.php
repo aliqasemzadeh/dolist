@@ -12,6 +12,11 @@ class Index extends Component
 
     public $task;
 
+    protected $listeners = [
+        'confirmedRemove',
+        'cancelledRemove',
+    ];
+
     public function remove(Task $task)
     {
         $this->confirm(__('dolist.are_you_sure'), [
@@ -22,11 +27,16 @@ class Index extends Component
             'onConfirmed' => 'confirmedRemove',
             'onCancelled' => 'cancelledRemove'
         ]);
+
         $this->task = $task;
     }
 
     public function confirmedRemove()
     {
+        if(auth()->user()->id != $this->task->user_id) {
+            abort(400);
+        }
+
         $this->task->delete();
 
         $this->alert(
@@ -41,10 +51,6 @@ class Index extends Component
             'success',
             __('dolist.cancelled')
         );
-    }
-
-    public function mount()
-    {
     }
 
     public function render()
