@@ -13,11 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/', \App\Http\Livewire\Dashbaord\Index::class)->name('home');
     Route::get('/dashboard', \App\Http\Livewire\Dashbaord\Index::class)->name('dashboard');
     Route::get('/task', \App\Http\Livewire\Task\Index::class)->name('task');
 });
