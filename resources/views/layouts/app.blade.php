@@ -44,5 +44,6 @@
         <wireui:scripts />
         @livewireScripts
         <x-livewire-alert::scripts />
+        @livewire('livewire-ui-modal')
     </body>
 </html>
