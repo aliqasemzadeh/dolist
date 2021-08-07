@@ -4,8 +4,8 @@
 
 ## 🖥️ Demo
 
-Demo: [DoList.ir](https://DoList.ir/)
-ScreenShots: [ScreenShots](https://github.com/alighasemzadeh/dolist/tree/main/screenshots)
+- Demo: [DoList.ir](https://DoList.ir/)
+- ScreenShots: [ScreenShots](https://github.com/alighasemzadeh/dolist/tree/main/screenshots)
 
 ## 🔌 Requirements
 
