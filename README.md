@@ -8,7 +8,7 @@ Demo: [DoList.ir](https://DoList.ir/)
 
 ## 🔌 Requirements
 
-- PHP version: >= 7.3
+- PHP version: >= 7.4
 - Composer
 - Node.js
 
@@ -19,6 +19,7 @@ Demo: [DoList.ir](https://DoList.ir/)
 - Livewire
 - Tailwind CSS
 - WireUI
+- LivewireUiModal
 
 
 ## 🧾 Installation
