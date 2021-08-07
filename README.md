@@ -5,6 +5,7 @@
 ## 🖥️ Demo
 
 Demo: [DoList.ir](https://DoList.ir/)
+ScreenShots: [ScreenShots](https://github.com/alighasemzadeh/dolist/tree/main/screenshots)
 
 ## 🔌 Requirements
 
@@ -20,6 +21,7 @@ Demo: [DoList.ir](https://DoList.ir/)
 - Tailwind CSS
 - WireUI
 - LivewireUiModal
+- SweetAlert2
 
 
 ## 🧾 Installation
