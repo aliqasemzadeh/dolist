@@ -16,8 +16,14 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
     use PasswordValidationRules;
-    public function redirect($driver) {
-        return Socialite::driver($driver)->redirect();
+
+    public function redirect($driver)
+    {
+        if(config('dolist.enable_socialite_auth')) {
+            return Socialite::driver($driver)->redirect();
+        } else {
+            return  redirect(route('login'));
+        }
     }
 
     public function callback($driver) {

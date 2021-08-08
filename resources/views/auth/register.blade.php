@@ -54,6 +54,11 @@
                 <x-jet-button class="ml-4">
                     {{ __('Register') }}
                 </x-jet-button>
+                @if(config('dolist.enable_socialite_auth'))
+                    <a href="{{ route('auth.redirect', ['google']) }}">
+                        <x-button negative label="{{ __('dolist.google') }}" />
+                    </a>
+                @endif
             </div>
         </form>
     </x-jet-authentication-card>
