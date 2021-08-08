@@ -45,6 +45,10 @@
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
                 </x-jet-button>
+                <a href="{{ route('auth.redirect', ['google']) }}">
+                    <x-button negative label="{{ __('dolist.google') }}" />
+                </a>
+
             </div>
         </form>
     </x-jet-authentication-card>

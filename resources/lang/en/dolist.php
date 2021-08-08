@@ -13,5 +13,6 @@ return [
   'cancel' => 'Cancel',
   'are_you_sure' => 'Are you sure?',
   'created' => 'Created.',
+  'google' => 'Google',
   'description' => 'Description',
 ];
