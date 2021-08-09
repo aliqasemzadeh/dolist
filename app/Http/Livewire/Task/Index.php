@@ -15,6 +15,7 @@ class Index extends Component
     protected $listeners = [
         'confirmedRemove',
         'cancelledRemove',
+        'render',
     ];
 
     public function remove(Task $task)
@@ -52,6 +53,8 @@ class Index extends Component
             __('dolist.cancelled')
         );
     }
+
+
 
     public function render()
     {

@@ -22,6 +22,12 @@ class Edit extends ModalComponent
         $this->task->description = $this->description;
         $this->task->save();
 
+        $this->closeModalWithEvents([
+            \App\Http\Livewire\Dashbaord\Index::getName() => 'updateTasks',
+            \App\Http\Livewire\Task\Index::getName() => 'render',
+
+        ]);
+
         $this->alert(
             'success',
             __('dolist.edited')
