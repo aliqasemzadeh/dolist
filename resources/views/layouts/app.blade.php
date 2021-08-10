@@ -42,8 +42,8 @@
 
         @stack('modals')
         <wireui:scripts />
-        @livewireScripts
         <x-livewire-alert::scripts />
         @livewire('livewire-ui-modal')
+        @livewireScripts
     </body>
 </html>

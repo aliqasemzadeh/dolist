@@ -7,11 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
-
-
     public $task;
     public $tasks;
-
 
     protected $listeners = [
         'confirmedDone',

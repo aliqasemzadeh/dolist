@@ -10,7 +10,7 @@ class Create extends ModalComponent
     public $title;
     public $description;
     public $projectId;
-    public $duration = 0;
+    public int $duration = 0;
 
     public function create()
     {
@@ -26,8 +26,10 @@ class Create extends ModalComponent
         $task->user_id = auth()->user()->id;
         $task->save();
 
+        $this->emitTo('dashboard.index', 'updateTasks');
+
         $this->closeModalWithEvents([
-           'updateTasks',
+            \App\Http\Livewire\Dashbaord\Index::getName() => 'updateTasks',
         ]);
 
         $this->alert(
