@@ -5,37 +5,36 @@ namespace App\Http\Livewire\Task;
 use App\Models\Task;
 use LivewireUI\Modal\ModalComponent;
 
-class Edit extends ModalComponent
+class Create extends ModalComponent
 {
-
-    public $task;
     public $title;
-    public $duration;
     public $description;
+    public $projectId;
+    public $duration = 0;
 
-    public function edit()
+    public function create()
     {
         $this->validate([
             'title' => 'string|required',
             'duration' => 'numeric|required'
         ]);
 
-        $this->task->title = $this->title;
-        $this->task->description = $this->description;
-        $this->task->save();
+        $task = new Task();
+        $task->title = $this->title;
+        $task->description = $this->description;
+        $task->duration = $this->duration;
+        $task->user_id = auth()->user()->id;
+        $task->save();
 
         $this->closeModalWithEvents([
             \App\Http\Livewire\Dashbaord\Index::getName() => 'updateTasks',
-            \App\Http\Livewire\Task\Index::getName() => 'render',
-
         ]);
 
         $this->alert(
             'success',
-            __('dolist.edited')
+            __('dolist.created')
         );
     }
-
 
     public function minus()
     {
@@ -51,23 +50,8 @@ class Edit extends ModalComponent
         $this->duration = $this->duration + 1;
     }
 
-
-
-    public function mount(Task $task)
-    {
-        if(auth()->user()->id != $task->user_id) {
-            abort(400);
-        }
-
-        $this->task = $task;
-        $this->title = $task->title;
-        $this->duration = $task->duration;
-        $this->description = $task->description;
-
-    }
-
     public function render()
     {
-        return view('livewire.task.edit');
+        return view('livewire.task.create');
     }
 }

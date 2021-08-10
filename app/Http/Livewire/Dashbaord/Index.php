@@ -7,10 +7,7 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $title;
-    public $description;
-    public $projectId;
-    public $duration;
+
 
     public $task;
     public $tasks;
@@ -32,25 +29,7 @@ class Index extends Component
         $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
     }
 
-    public function create()
-    {
-        $this->validate([
-           'title' => 'string|required'
-        ]);
 
-        $task = new Task();
-        $task->title = $this->title;
-        $task->description = $this->description;
-        $task->user_id = auth()->user()->id;
-        $task->save();
-
-        $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
-
-        $this->alert(
-            'success',
-            __('dolist.created')
-        );
-    }
 
     public function done(Task $task)
     {

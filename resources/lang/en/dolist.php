@@ -14,5 +14,6 @@ return [
   'are_you_sure' => 'Are you sure?',
   'created' => 'Created.',
   'google' => 'Google',
+  'duration' => 'Duration',
   'description' => 'Description',
 ];

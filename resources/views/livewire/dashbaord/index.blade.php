@@ -1,14 +1,7 @@
 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 mt-4">
-    <x-card title="{{ __('dolist.add_task') }}">
-        <x-input label="{{ __('dolist.title') }} *" placeholder="{{ __('dolist.title') }}" wire:model="title" />
-        <x-textarea label="{{ __('dolist.description') }}" placeholder="{{ __('dolist.description') }}" wire:model="description" />
-        <x-slot name="footer">
-            <div class="flex justify-between items-center">
-                <x-button label="{{ __('dolist.save') }}" wire:click="create" primary />
-            </div>
-        </x-slot>
-    </x-card>
-
+    <x-button primary label="{{ __('dolist.create') }}" wire:click="$emit('openModal', 'task.create')"  />
+</div>
+<div class="max-w-6xl mx-auto sm:px-6 lg:px-8 mt-4">
     @foreach($tasks as $task)
         <div class="mt-4 mb-4">
             <x-card title="{{ $task->title }}">
