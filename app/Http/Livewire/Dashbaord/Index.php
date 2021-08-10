@@ -16,7 +16,7 @@ class Index extends Component
     protected $listeners = [
         'confirmedDone',
         'cancelledDone',
-        'updateTasks',
+        'updateTasks' => 'updateTasks',
     ];
 
     public function mount()
