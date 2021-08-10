@@ -27,7 +27,7 @@ class Create extends ModalComponent
         $task->save();
 
         $this->closeModalWithEvents([
-            \App\Http\Livewire\Dashbaord\Index::getName() => 'updateTasks',
+           'updateTasks',
         ]);
 
         $this->alert(
