@@ -2,13 +2,14 @@
     <x-card title="{{ __('dolist.add_task') }}">
         <x-input label="{{ __('dolist.title') }} *" placeholder="{{ __('dolist.title') }}" wire:model="title" />
 
-        <x-input label="{{ __('dolist.duration') }}" placeholder="{{ __('dolist.duration') }}" wire:modal="duration" class="pl-12">
+
+        <x-input class="pl-12" label="{{ __('dolist.duration') }}" placeholder="{{ __('dolist.duration') }}" wire:model="duration">
             <x-slot name="prepend">
                 <div class="absolute inset-y-0 left-0 flex items-center p-0.5">
                     <x-button
                         class="rounded-l-md h-full"
-                        wire:click="minus"
                         icon="minus"
+                        wire:click="minus"
                         primary
                         flat
                         squared
@@ -19,9 +20,9 @@
             <x-slot name="append">
                 <div class="absolute inset-y-0 right-0 flex items-center p-0.5">
                     <x-button
-                        wire:click="plus"
                         class="rounded-r-md h-full"
                         icon="plus"
+                        wire:click="plus"
                         primary
                         flat
                         squared
