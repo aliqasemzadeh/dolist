@@ -26,9 +26,7 @@ class Create extends ModalComponent
         $task->user_id = auth()->user()->id;
         $task->save();
 
-        $this->closeModalWithEvents([
-            \App\Http\Livewire\Dashbaord\Index::getName() => 'updateTasksList',
-        ]);
+        $this->closeModalWithEvents(['updateTasksList']);
 
         $this->alert(
             'success',

@@ -13,20 +13,13 @@ class Index extends Component
     protected $listeners = [
         'confirmedDone',
         'cancelledDone',
-        'updateTasksList' => 'updateTasks',
+        'updateTasksList' => '$refresh',
     ];
 
     public function mount()
     {
         $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
     }
-
-    public function updateTasks()
-    {
-        $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
-    }
-
-
 
     public function done(Task $task)
     {

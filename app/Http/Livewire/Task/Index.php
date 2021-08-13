@@ -15,7 +15,7 @@ class Index extends Component
     protected $listeners = [
         'confirmedRemove',
         'cancelledRemove',
-        'render',
+        'updateTasksList' => '$refresh',
     ];
 
     public function remove(Task $task)
