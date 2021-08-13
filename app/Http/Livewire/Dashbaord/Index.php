@@ -23,7 +23,6 @@ class Index extends Component
 
     public function done(Task $task)
     {
-
         $this->confirm(__('dolist.are_you_sure'), [
             'toast' => false,
             'position' => 'center',
