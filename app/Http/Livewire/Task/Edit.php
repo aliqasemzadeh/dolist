@@ -21,6 +21,7 @@ class Edit extends ModalComponent
         ]);
 
         $this->task->title = $this->title;
+        $this->task->duration = $this->duration;
         $this->task->description = $this->description;
         $this->task->save();
 

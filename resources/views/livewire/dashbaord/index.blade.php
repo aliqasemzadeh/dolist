@@ -10,12 +10,12 @@
                         <button wire:click="done({{ $task }})" class="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600">
                             <x-icon name="check" class="w-4 h-4 text-gray-500" />
                         </button>
-                        <button class="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600" wire:click='$emit("openModal", "task.edit", {{ json_encode(["task" => $task]) }})'><x-icon name="pencil-alt" class="w-4 h-4 text-gray-500" /></button>
+                        <button class="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600" wire:click='$emit("openModal", "task.edit", {{ json_encode(["task" => $task->id]) }})'><x-icon name="pencil-alt" class="w-4 h-4 text-gray-500" /></button>
+
                     </x-slot>
                     {{ $task->description }}
                 </x-card>
             </div>
-
         @endforeach
     </div>
 
