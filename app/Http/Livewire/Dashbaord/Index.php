@@ -4,22 +4,19 @@ namespace App\Http\Livewire\Dashbaord;
 
 use App\Models\Task;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+
     public $task;
-    public $tasks;
 
     protected $listeners = [
         'confirmedDone',
         'cancelledDone',
         'updateTasksList' => '$refresh',
     ];
-
-    public function mount()
-    {
-        $this->tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->get();
-    }
 
     public function done(Task $task)
     {
@@ -56,6 +53,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashbaord.index');
+        $tasks = Task::where('user_id', auth()->user()->id)->where('status', 'create')->latest()->paginate(config('dolist.per_page'));
+        return view('livewire.dashbaord.index', compact('tasks'));
     }
 }
