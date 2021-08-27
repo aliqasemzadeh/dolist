@@ -14,6 +14,7 @@
 
                     </x-slot>
                     {{ __('dolist.duration') }}:{{ $task->duration }}
+                    <br />
                     {{ $task->description }}
                 </x-card>
             </div>
