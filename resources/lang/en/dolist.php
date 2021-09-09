@@ -1,5 +1,6 @@
 <?php
 return [
+  'direction' => 'ltr',
   'save' => 'Save',
   'add_task' => 'Add Task',
   'title' => 'Title',
